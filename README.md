@@ -119,6 +119,19 @@ If you want to exec to a pod
 k create role pod-reader --verb=get,watch,list --resources=pods --verb=create --resources=pods/exec
 ```
 
+```
+k describe role pod-reader
+```
+
+Test (su - john)
+```
+k auth can-i create deployments
+no
+k auth can-i create pods
+yes
+```
+
+
 
 
 
