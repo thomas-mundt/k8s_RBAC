@@ -100,6 +100,26 @@ cp john.kubeconfig /home/john/.kube/config
 ```
 
 
+## Set RBAC for user john
+
+As root  
+
+Create role
+```
+k create role pod-reader --verb=get,watch,list --resources=pods
+```
+
+Create rolebinding
+```
+k create rolebinding read-pods --user=john --role=pod-reader
+```
+
+If you want to exec to a pod
+```
+k create role pod-reader --verb=get,watch,list --resources=pods --verb=create --resources=pods/exec
+```
+
+
 
 
 
